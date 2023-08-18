@@ -42,7 +42,7 @@ export default function Navbar() {
       <div className="items-center">
         <Link href="/">
           <Image
-            className="relative"
+            className="relative p-2"
             width={400}
             height={400}
             src="/header-logo.png"
@@ -77,7 +77,7 @@ export default function Navbar() {
               onClick={toggleDropdown_2}
               className="text-black hover:opacity-50 px-4 py-2 rounded whitespace-nowrap"
             >
-              How We Learn 
+              How We Learn
             </button>
             {dropdownOpen_2 && (
               <div className="absolute top-10 bg-white border rounded shadow-lg p-2">
@@ -100,7 +100,7 @@ export default function Navbar() {
               Join Us
             </button>
             {dropdownOpen_3 && (
-              <div className="absolute top-10 bg-white border rounded shadow-lg p-2">
+              <div className="absolute top-10 bg-white border rounded shadow-lg p-2 whitespace-nowrap">
                 <ul>
                   <li>Get Started</li>
                   <li>Admissions Process</li>
@@ -121,21 +121,78 @@ export default function Navbar() {
           <Image
             src="/bars.svg"
             onClick={toggleMobileDropdown}
-            className="hover:opacity-50 m-3"
-            height={30}
-            width={30}
+            className="hover:opacity-50 mx-5"
+            height={20}
+            width={20}
           ></Image>
         </div>
       </div>
-      {mobileDropdown &&(
-      <div className="absolute justify-between items-center row mt-10 pt-5">
-        <ul className="flex pt-10">
-          <li className="p-2">About Us</li>
-          <li className="p-2">How We Learn</li>
-          <li className="p-2">Join Us</li>
-          <li className="p-2">Support Us</li>
-        </ul>
-      </div>
+      {mobileDropdown && (
+        <div className="absolute block lg:hidden justify-between text-xs items-center row mt-10 pt-10">
+          <ul className="flex pt-10 border-b">
+            <li className="-mb-px mr-1">
+              <button
+                className="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold whitespace-nowrap"
+                onClick={toggleDropdown}
+              >
+                About
+              </button>
+              {dropdownOpen && (
+                <div className="absolute text-left bg-white border rounded shadow-lg p-2">
+                  <ul>
+                    <Link href="/asdf">Our Story</Link>
+                    <li>Core Values</li>
+                    <li>Our Staff</li>
+                    <li>Our Board</li>
+                    <li>Employment</li>
+                    <li>Contact</li>
+                  </ul>
+                </div>
+              )}
+            </li>
+            <li className="-mb-px mr-1">
+              <button
+                className="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold"
+                onClick={toggleDropdown_2}
+              >
+                Learn
+              </button>
+              {dropdownOpen_2 && (
+                <div className="absolute text-left bg-white border rounded shadow-lg p-2">
+                  <ul>
+                    <li>How We Learn</li>
+                    <li>The ARC</li>
+                    <li>True-Play PreK</li>
+                    <li>A Typical Day</li>
+                    <li>Buckeye League</li>
+                  </ul>
+                </div>
+              )}
+            </li>
+            <li className="-mb-px mr-1">
+              <button
+                className="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold"
+                onClick={toggleDropdown_3}
+              >
+                Join
+              </button>
+              {dropdownOpen_3 && (
+                <div className="absolute text-left bg-white border rounded shadow-lg p-2">
+                  <ul>
+                    <li>Get Started</li>
+                    <li>Admissions Process</li>
+                    <li>Tuition & Aid</li>
+                  </ul>
+                </div>
+              )}
+            </li>
+            <li className="-mb-px mr-1">
+              <button className="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold">
+                <Link href="/support">Support</Link>
+              </button>
+            </li>
+          </ul>
+        </div>
       )}
     </nav>
   );
